@@ -6,4 +6,16 @@ You can run the two demos by first setting up a Python environment with support 
 
 **Quadruple Pendulum Simulation**: To run, simply type in your terminal `python pendulum.py`. Note, the simulation can be customized by varying the number of links, the length of the links, and the masses.
 
+<p align="center">
+  <img src="imgs/pendulum1.png" width="300" alt="Image 1">
+  <img src="imgs/pendulum2.png" width="300" alt="Image 2">
+</p>
+
+
+
 **Bouncing Balls in a Box Simulation** To run, simply type in your terminal `python bouncing_ball.py`. Note, the simulation can be customized by varying the sizes of the two balls in the simulation. You can also render the direction of the balls' velocities by setting `self.arrow = True`.
+
+<p align="center">
+  <img src="imgs/bb1.png" width="300" alt="Image 1">
+  <img src="imgs/bb2.png" width="300" alt="Image 2">
+</p>
