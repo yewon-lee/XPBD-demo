@@ -55,11 +55,26 @@ class BouncingBall:
         # Create colors for the balls
         brighter_pastel_colors = ['#FFA1B5', '#FFE872', '#77FFEA', '#8AC9FF', '#FFA573']
         self.colors = brighter_pastel_colors[:self.n_balls]
-        self.circles = [plt.Circle((self.p[0, i], self.p[1, i]), self.radii[i], fill=True, color=self.colors[i]) for i in range(self.n_balls)]
+
+        # Create circles with a white border
+        self.circles = [
+            plt.Circle(
+                (self.p[0, i], self.p[1, i]),
+                self.radii[i],
+                fill=True,
+                color=self.colors[i],
+                edgecolor='white',  # Add a white border
+                linewidth=1          # Set the width of the border
+            ) for i in range(self.n_balls)]
+
+        # Add circles to the plot
         [self.ax.add_patch(circle) for circle in self.circles]
 
         # Create quiver arrows for velocity representation
         self.quiver_arrows = [self.ax.quiver(0, 0, 0, 0, color='black', scale_units='xy', scale=10) for i in range(self.n_balls)]
+
+        # Whether or not to render arrow
+        self.arrow = False
 
 
     def compute_constraints(self, x, y):
@@ -152,7 +167,8 @@ class BouncingBall:
         for i in range(self.n_balls):
             self.circles[i].center = (self.p[0, i], self.p[1, i])
 
-        self.render_arrows()
+        if self.arrow:
+            self.render_arrows()
 
         # Pause for a short time to create a real-time effect
         plt.pause(0.01)
